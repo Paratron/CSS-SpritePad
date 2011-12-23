@@ -1,0 +1,101 @@
+html,body{
+   width: 100%;
+   height: 100%;
+   padding: 0;
+   margin: 0;
+}
+
+#app{
+    display: -webkit-box;
+    -webkit-box-align: stretch;
+    -webkit-box-orient: horizontal;
+
+    display: -moz-box;
+    -moz-box-align: stretch;
+    -moz-box-orient: horizontal;
+
+    width: 100%;
+    height: 100%;
+
+    #canvas, #sidebar{
+        height: 100%;
+    }
+
+    #canvas{
+        background: url(../img/grid.png);
+        overflow: hidden;
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+
+        .element{
+            border: rgba(0,0,0,0) solid 1px;
+            position: absolute;
+
+            &:hover{
+                border: #f00 dotted 1px;
+                cursor: move;
+            }
+        }
+    }
+
+    #sidebar{
+        width: 400px;
+        overflow-y: scroll;
+        background: #fff url(../img/paper.png);
+        -moz-box-shadow:-1px 0px 2px #333;
+        -webkit-box-shadow:-1px 0px 2px #333;
+        box-shadow:-1px 0px 2px #333;
+
+        .actions{
+            height: 25px;
+            line-height: 25px;
+            padding: 3px;
+            background: #000;
+            background-image: -moz-linear-gradient(top, #707070, #000000);
+            background-image: -webkit-gradient(linear, center top, center bottom, from(#707070), to(#000000));
+            background-image: -o-linear-gradient(top, #707070, #000000);
+            background-image: linear-gradient(top, #707070, #000000);
+
+            img{
+                line-height: 25px;
+                cursor: pointer;
+                margin-left: 5px;
+                margin-right: 5px;
+                vertical-align: middle;
+                position: relative;
+                top: -2px;
+            }
+        }
+
+        .node{
+            font-family: monospace;
+            padding: 5px;
+            border-bottom: #bfbfbf solid 1px;
+            line-height: 1.5em;
+
+            &:last-child{
+                border-bottom: none;
+            }
+
+            &:hover{
+                background-color: #efefef;
+            }
+
+            .title{
+                padding-right: 10px;
+            }
+
+            .pair{
+                padding-left: 15px;
+
+                .key{
+                    color: #c80000;
+                }
+
+                .value{
+                    
+                }
+            }
+        }
+    }
+}
