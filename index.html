@@ -1,19 +1,43 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title></title>
+    <title>SpritePad</title>
+    <link rel="shortcut icon" href="favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="lib/css/main.css" type="text/css" rel="stylesheet" media="screen">
 </head>
 <body>
 
 <div id="app">
-    <div id="canvas"></div>
+    <div id="document">
+            <div id="welcome">
+                <h1><img src="lib/img/logo.png"> SpritePad <small>v 0.1</small></h1>
+                <div class="body">
+                    <div class="row">
+                        <div>
+                            <p>Drag & Drop image files to your SpritePad document and create CSS spritemaps easy and fast.</p>
+                            <p>Give it a try!</p>
+                        </div>
+                        <div>
+                            <p style="text-align: center;">
+                                <button class="action newdoc">Create new spritemap</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    &copy; 2011 <a href="http://wearekiss.com">KISS</a> - Made in Germany
+                </div>
+
+            </div>
+            <div id="canvas" style="display: none;"></div>
+    </div>
     <div id="sidebar">
         <div class="actions">
             <img src="lib/img/new.png" id="new_document" title="New SpritePad">
             <img src="lib/img/download.png" id="download_document" title="Download SpritePad data">
         </div>
+        <div class="styles"></div>
     </div>
 </div>
 
