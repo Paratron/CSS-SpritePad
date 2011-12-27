@@ -66,7 +66,7 @@ html,body{
 
     #canvas{
         position: relative;
-        background: url(../img/grid.png);
+        background: url(../img/grid.png?1);
         overflow: hidden;
         width: 640px;
         height: 480px;
@@ -82,6 +82,24 @@ html,body{
                 border: #f00 dotted 1px;
                 cursor: move;
             }
+        }
+
+        .guide-v, .guide-h{
+            position: absolute;
+            background: #f00;
+            cursor: move;
+        }
+
+        .guide-v{
+            width: 1px;
+            top: 0;
+            bottom: 0;
+        }
+
+        .guide-h{
+            height: 1px;
+            left: 0;
+            right: 0;
         }
     }
 
