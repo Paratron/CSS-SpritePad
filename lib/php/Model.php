@@ -26,7 +26,7 @@ class Model {
         $hash = $data[0];
         $content = $data[1];
         if(md5($content) != $hash) return FALSE;
-        if(is_stored($content)) return FALSE;
+        if($this->is_stored($content)) return FALSE;
         $folder = substr($hash, 0, 2);
         $file = substr($hash, 2);
         $commapos = strpos($content, ',');
@@ -65,7 +65,8 @@ class Model {
             $folder = substr($sprite['hash'], 0, 2);
             $file = substr($sprite['hash'], 2);
 
-            $sprite_img = imagecreatefrompng('storage/'.$folder.'/'.$file);
+            $dta = file_get_contents('storage/'.$folder.'/'.$file);
+            $sprite_img = imagecreatefromstring($dta);
             imagealphablending($sprite_img, TRUE);
             imagesavealpha($sprite_img, TRUE);
             imagecopyresampled($img, $sprite_img, $sprite['x'], $sprite['y'], 0, 0, $sprite['w'], $sprite['h'], $sprite['w'], $sprite['h']);
