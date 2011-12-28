@@ -2,8 +2,14 @@
 <html lang="de">
 <head>
     <title>SpritePad</title>
-    <link rel="shortcut icon" href="favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script>
+        window.Modernizr=function(a,b,c){function y(a,b){return!!~(""+a).indexOf(b)}function x(a,b){return typeof a===b}function w(a,b){return v(m.join(a+";")+(b||""))}function v(a){j.cssText=a}var d="2.0.6",e={},f=b.documentElement,g=b.head||b.getElementsByTagName("head")[0],h="modernizr",i=b.createElement(h),j=i.style,k,l=Object.prototype.toString,m=" -webkit- -moz- -o- -ms- -khtml- ".split(" "),n={},o={},p={},q=[],r=function(){function d(d,e){e=e||b.createElement(a[d]||"div"),d="on"+d;var f=d in e;f||(e.setAttribute||(e=b.createElement("div")),e.setAttribute&&e.removeAttribute&&(e.setAttribute(d,""),f=x(e[d],"function"),x(e[d],c)||(e[d]=c),e.removeAttribute(d))),e=null;return f}var a={select:"input",change:"input",submit:"form",reset:"form",error:"img",load:"img",abort:"img"};return d}(),s,t={}.hasOwnProperty,u;!x(t,c)&&!x(t.call,c)?u=function(a,b){return t.call(a,b)}:u=function(a,b){return b in a&&x(a.constructor.prototype[b],c)},n.flexbox=function(){function c(a,b,c,d){a.style.cssText=m.join(b+":"+c+";")+(d||"")}function a(a,b,c,d){b+=":",a.style.cssText=(b+m.join(c+";"+b)).slice(0,-b.length)+(d||"")}var d=b.createElement("div"),e=b.createElement("div");a(d,"display","box","width:42px;padding:0;"),c(e,"box-flex","1","width:10px;"),d.appendChild(e),f.appendChild(d);var g=e.offsetWidth===42;d.removeChild(e),f.removeChild(d);return g},n.canvas=function(){var a=b.createElement("canvas");return!!a.getContext&&!!a.getContext("2d")},n.draganddrop=function(){return r("dragstart")&&r("drop")};for(var z in n)u(n,z)&&(s=z.toLowerCase(),e[s]=n[z](),q.push((e[s]?"":"no-")+s));v(""),i=k=null,e._version=d,e._prefixes=m,e.hasEvent=r;return e}(this,this.document);
+        var m = Modernizr;
+        var support = m.canvas && m.draganddrop && m.flexbox && (typeof FileReader !== 'undefined');
+        if(!support) location.href = 'upgrade.html';
+    </script>
+    <link rel="shortcut icon" href="favicon.ico" />
     <link href="lib/css/main.css?<?=filemtime('lib/css/main.css')?>" type="text/css" rel="stylesheet" media="screen">
 </head>
 <body>
@@ -11,7 +17,7 @@
 <div id="app">
     <div id="document">
             <div id="welcome">
-                <h1><img src="lib/img/logo.png"> SpritePad <small>v 0.1</small></h1>
+                <h1><img src="lib/img/logo.png"> SpritePad <small>v 0.2</small></h1>
                 <div class="body">
                     <div class="row">
                         <div>
@@ -30,7 +36,7 @@
                 </div>
 
             </div>
-            <div id="excanvas">
+            <div id="excanvas" style="display: none;">
                     <div id="canvas" style="display: none;"></div>
             </div>
     </div>
