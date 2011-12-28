@@ -51,6 +51,7 @@
                     <label><input checked type="checkbox" data-option="magnetic"> Magnetic elements and guides</label>
                     <label><input checked type="checkbox" data-option="magnetspace"> Preserve 1px spaces</label>
                     <label><input type="checkbox" data-option="gridsnap"> Snap elements to grid</label>
+                    <label><input type="checkbox" data-option="drawbounding"> Draw bounding masks</label>
                 </div>
             </div>
         </div>
