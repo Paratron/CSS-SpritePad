@@ -4,7 +4,7 @@
     <title>SpritePad</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="lib/css/main.css?1" type="text/css" rel="stylesheet" media="screen">
+    <link href="lib/css/main.css?<?=filemtime('lib/css/main.css')?>" type="text/css" rel="stylesheet" media="screen">
 </head>
 <body>
 
@@ -37,7 +37,16 @@
     <div id="sidebar">
         <div class="actions">
             <img src="lib/img/new.png" id="new_document" title="New SpritePad">
-            <img src="lib/img/download.png" id="download_document" title="Download SpritePad data">
+            <img src="lib/img/download.png" id="download_document" class="deactivated" title="Download SpritePad data">
+            <img src="lib/img/settings.png" id="btn-settings" class="deactivated" title="Define different settings">
+            <div class="dropdown" id="settings">
+                <div class="anchor"><img src="lib/img/settings.png" title="Define different settings"></div>
+                <div class="content">
+                    <label><input checked type="checkbox" data-option="magnetic"> Magnetic elements and guides</label>
+                    <label><input checked type="checkbox" data-option="magnetspace"> Preserve 1px spaces</label>
+                    <label><input type="checkbox" data-option="gridsnap"> Snap elements to grid</label>
+                </div>
+            </div>
         </div>
         <div class="styles"></div>
     </div>

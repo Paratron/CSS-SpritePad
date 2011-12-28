@@ -126,6 +126,7 @@ html,body{
         }
 
         .actions{
+            position: relative;
             height: 25px;
             line-height: 25px;
             padding: 3px;
@@ -144,6 +145,11 @@ html,body{
                 position: relative;
                 top: -2px;
             }
+
+             .deactivated{
+                opacity: 0.5;
+                cursor: default;
+             }
         }
 
         .node{
@@ -259,6 +265,7 @@ html,body{
 }
 
 .action{
+    position: relative;
     width: 178px;
     height: 32px;
     border-color: #111;
@@ -272,6 +279,41 @@ html,body{
     &:hover{
         .dropshadow(0px, 0.3);
         color: #fff;
+    }
+}
+
+.dropdown{
+    position: absolute;
+    top: 3px;
+    right: 313px;
+    display: none;
+    
+    .anchor{
+        background: #333;
+        width: 25px;
+        height: 23px;
+        float: right;
+        -moz-border-radius:10px 10px 0px 0px;
+        -webkit-border-radius:10px 10px 0px 0px;
+        border-radius:10px 10px 0px 0px;
+        z-index: 2;
+    }
+    .content{
+        margin-top: 20px;
+        padding: 3px;
+        background: #333;
+        -moz-border-radius:10px 0px 10px 10px;
+        -webkit-border-radius:10px 0px 10px 10px;
+        border-radius:10px 0px 10px 10px;
+        .dropshadow(1px, 0.3);
+
+        label{
+            display: block;
+            color: #fff;
+            padding: 3px;
+            padding-right: 10px;
+            width: 200px;
+        }
     }
 }
 
