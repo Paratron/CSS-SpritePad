@@ -79,9 +79,11 @@ class Model {
 
         //=====================================================================
         $cssdata = '';
+        $superclass = '';
 
         //Now generate the CSS!
         foreach($sprites as $sprite){
+            $superclass .= '.'.$sprite['classname'].',';
             $cssdata .= '.'.$sprite['classname'].'{'."\n";
             $cssdata .= "\t".'background-position: -'.$sprite['x'].'px -'.$sprite['y'].'px;'."\n";
             $cssdata .= "\t".'width: '.$sprite['w'].'px;'."\n";
@@ -89,12 +91,17 @@ class Model {
             $cssdata .= "}\n\n";
         }
 
+        $superclass = substr($superclass, 0, -1). '{
+    background: url(sprites.png) no-repeat;
+}
+
+';
 
         $filename = 'download/'.md5($cssdata).'.zip';
         $zip = new ZipArchive();
         $zip->open($filename, ZIPARCHIVE::CREATE);
         $zip->addFromString('sprites.png', $imgdata);
-        $zip->addFromString('sprites.css', $cssdata);
+        $zip->addFromString('sprites.css', $superclass.$cssdata);
         $zip->close();
 
         return $filename;

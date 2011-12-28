@@ -11,13 +11,19 @@
     </script>
     <link rel="shortcut icon" href="favicon.ico" />
     <link href="lib/css/main.css?<?=filemtime('lib/css/main.css')?>" type="text/css" rel="stylesheet" media="screen">
+    <meta property="og:title" content="SpritePad"/>
+    <meta property="og:type" content="product"/>
+    <meta property="og:image" content="http://wearekiss.com/lab/spritepad/lib/img/fb-icon.png"/>
+    <meta property="og:site_name" content="KISS - Simply Achieve More"/>
+    <meta property="fb:admins" content="100000549523060,617757437"/>
+    <meta property="og:description" content="SpritePad is a HTML5 Web App that helps you building CSS Spritemaps easy and fast. Give it a try!"/>
 </head>
 <body>
 
 <div id="app">
     <div id="document">
             <div id="welcome">
-                <h1><img src="lib/img/logo.png"> SpritePad <small>v 0.2</small></h1>
+                <h1><img src="lib/img/logo.png"> SpritePad <small>v 0.22</small></h1>
                 <div class="body">
                     <div class="row">
                         <div>
@@ -56,6 +62,7 @@
                     <label><input type="checkbox" data-option="drawbounding"> Draw bounding masks</label>
                 </div>
             </div>
+            <img src="lib/img/autoscale.png" id="btn-autoscale" class="deactivated" title="Shrink document to fit elements">
         </div>
         <div class="styles"></div>
     </div>
