@@ -37,7 +37,9 @@
 
             </div>
             <div id="excanvas" style="display: none;">
-                    <div id="canvas" style="display: none;"></div>
+                <div id="canvas" style="display: none;"></div>
+                <span id="scale"></span>
+                <span id="sdisplay"><b>320x240</b></span>
             </div>
     </div>
     <div id="sidebar">

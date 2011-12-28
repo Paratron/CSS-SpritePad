@@ -87,7 +87,7 @@ html,body{
         .guide-v, .guide-h{
             position: absolute;
             background: #f00;
-            cursor: move;
+            cursor: e-resize;
         }
 
         .guide-v{
@@ -100,6 +100,7 @@ html,body{
             height: 1px;
             left: 0;
             right: 0;
+            cursor: n-resize;
         }
     }
 
@@ -326,6 +327,38 @@ html,body{
             padding-right: 10px;
             width: 200px;
         }
+    }
+}
+
+#scale{
+    display: block;
+    position: absolute;
+    bottom: -25px;
+    right: -25px;
+    opacity: 0;
+    width: 25px;
+    height: 25px;
+    background: url(../img/scale.png) center no-repeat;
+    cursor: nw-resize;
+
+    &:hover{
+        opacity: 1;
+    }
+}
+
+#sdisplay{
+    position: absolute;
+    display: none;
+    top: 14px;
+    left: 14px;
+    border: #000 dashed 1px;
+
+    b{
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        font-size: 11px;
+        line-height: 11px;
     }
 }
 
