@@ -23,7 +23,7 @@
 <div id="app">
     <div id="document">
             <div id="welcome">
-                <h1><img src="lib/img/logo.png"> SpritePad <small>v 0.22</small></h1>
+                <h1><img src="lib/img/logo.png"> SpritePad <small>v 0.3</small></h1>
                 <div class="body">
                     <div class="row">
                         <div>
@@ -46,6 +46,9 @@
                 <div id="canvas" style="display: none;"></div>
                 <span id="scale"></span>
                 <span id="sdisplay"><b>320x240</b></span>
+                <span id="context">
+                    
+                </span>
             </div>
     </div>
     <div id="sidebar">
