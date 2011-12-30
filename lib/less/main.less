@@ -84,6 +84,14 @@ html,body{
             }
         }
 
+        .selected{
+            border: #00f solid 1px;
+
+            &:hover, &.hover{
+                border: lighten(#00f, 20%) solid 1px;
+            }
+        }
+
         .guide-v, .guide-h{
             position: absolute;
             background: #f00;

@@ -23,7 +23,7 @@
 <div id="app">
     <div id="document">
             <div id="welcome">
-                <h1><img src="lib/img/logo.png"> SpritePad <small>v 0.3</small></h1>
+                <h1><img src="lib/img/logo.png"> SpritePad <small>v 0.4</small></h1>
                 <div class="body">
                     <div class="row">
                         <div>
