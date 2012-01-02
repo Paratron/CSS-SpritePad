@@ -69,7 +69,23 @@ class Model {
             $sprite_img = imagecreatefromstring($dta);
             imagealphablending($sprite_img, TRUE);
             imagesavealpha($sprite_img, TRUE);
-            imagecopyresampled($img, $sprite_img, $sprite['x'], $sprite['y'], 0, 0, $sprite['w'], $sprite['h'], $sprite['w'], $sprite['h']);
+            if($sprite['expand'] == 0){
+                imagecopyresampled($img, $sprite_img, $sprite['x'], $sprite['y'], 0, 0, $sprite['w'], $sprite['h'], $sprite['w'], $sprite['h']);
+            } else {
+                if($sprite['expand'] == 2){
+                    //Vertical!
+                    $repetitions = $document_height / $sprite['h'];
+                    for($i = 0; $i < $repetitions; $i++){
+                        imagecopyresampled($img, $sprite_img, $sprite['x'], $sprite['h']*$i, 0, 0, $sprite['w'], $sprite['h'], $sprite['w'], $sprite['h']);
+                    }
+                } else {
+                    //Horizontal!
+                    $repetitions = $document_width / $sprite['w'];
+                    for($i = 0; $i < $repetitions; $i++){
+                        imagecopyresampled($img, $sprite_img, $sprite['w']*$i, $sprite['y'], 0, 0, $sprite['w'], $sprite['h'], $sprite['w'], $sprite['h']);
+                    }
+                }
+            }
         }
 
         ob_start();
@@ -86,8 +102,10 @@ class Model {
             $superclass .= '.'.$sprite['classname'].',';
             $cssdata .= '.'.$sprite['classname'].'{'."\n";
             $cssdata .= "\t".'background-position: -'.$sprite['x'].'px -'.$sprite['y'].'px;'."\n";
-            $cssdata .= "\t".'width: '.$sprite['w'].'px;'."\n";
-            $cssdata .= "\t".'height: '.$sprite['h'].'px;'."\n";
+            if($sprite['expand'] == 1) $cssdata .= "\t".'background-repeat: repeat-x;'."\n";
+            if($sprite['expand'] == 2) $cssdata .= "\t".'background-repeat: repeat-y;'."\n";
+            if($sprite['expand'] != 1) $cssdata .= "\t".'width: '.$sprite['w'].'px;'."\n";
+            if($sprite['expand'] != 2) $cssdata .= "\t".'height: '.$sprite['h'].'px;'."\n";
             $cssdata .= "}\n\n";
         }
 

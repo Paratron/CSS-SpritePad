@@ -10,6 +10,7 @@
         if(!support) location.href = 'upgrade.html';
     </script>
     <link rel="shortcut icon" href="favicon.ico" />
+    <link href="lib/css/bootstrap.min.css" type="text/css" rel="stylesheet" media="screen">
     <link href="lib/css/main.css?<?=filemtime('lib/css/main.css')?>" type="text/css" rel="stylesheet" media="screen">
     <meta property="og:title" content="SpritePad"/>
     <meta property="og:type" content="product"/>
@@ -19,29 +20,38 @@
     <meta property="og:description" content="SpritePad is a HTML5 Web App that helps you building CSS Spritemaps easy and fast. Give it a try!"/>
 </head>
 <body>
-
+<div class="topbar" data-scrollspy="scrollspy" >
+      <div class="topbar-inner">
+        <div class="container">
+            <h3><a href="http://wearekiss.com/lab/spritepad/" id="logo" onclick="return false;">SpritePad</a></h3>
+          <ul class="nav">
+            <li><a href="#" id="new_document" ><img src="lib/img/new.png"title="New SpritePad"> New Spritemap</a></li>
+            <li><a href="#" id="download_document" class="disabled"><img src="lib/img/download.png" title="Download Spritemap Data"> Download Spritemap Data</a></li>
+            <li><a href="#" id="btn-autoscale" class="disabled"><img src="lib/img/autoscale.png" title="Shrink document to fit elements"> Shrink document to fit elements</a></li>
+            <li class="dropdown" data-dropdown="dropdown">
+                <a href="#" class="dropdown-toggle"><img src="lib/img/settings.png" title="Settings"> Settings</a>
+                <ul class="dropdown-menu" id="settings">
+                    <li><label><input checked type="checkbox" data-option="magnetic"> Magnetic elements and guides</label></li>
+                    <li><label><input checked type="checkbox" data-option="magnetspace"> Preserve 1px spaces</label></li>
+                    <li><label><input type="checkbox" data-option="gridsnap"> Snap elements to grid</label></li>
+                    <li><label><input type="checkbox" data-option="drawbounding"> Draw bounding masks</label></li>
+                </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 <div id="app">
+    <div id="toolbox" class="modal">
+        <div class="modal-header">
+            <a href="#" class="close" title="Minimize">_</a>
+            <h3><img src="lib/img/toolbox.png"><span> Selection Toolbox</span></h3>
+        </div>
+        <div class="modal-body">
+            <a class="btn single toggleable" data-toggle="expand" data-action="expand-and-repeat" href="#" title="Expand and repeat horizontally"><img src="lib/img/expand.png"></a>
+        </div>
+    </div>
     <div id="document">
-            <div id="welcome">
-                <h1><img src="lib/img/logo.png"> SpritePad <small>v 0.4</small></h1>
-                <div class="body">
-                    <div class="row">
-                        <div>
-                            <p>Drag & Drop image files to your SpritePad document and create CSS spritemaps easy and fast.</p>
-                            <p>Give it a try!</p>
-                        </div>
-                        <div>
-                            <p style="text-align: center;">
-                                <button class="action newdoc">Create new spritemap</button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="info">
-                    &copy; 2011 <a href="http://wearekiss.com">KISS</a> - Made in Germany
-                </div>
-
-            </div>
             <div id="excanvas" style="display: none;">
                 <div id="canvas" style="display: none;"></div>
                 <span id="scale"></span>
@@ -52,21 +62,6 @@
             </div>
     </div>
     <div id="sidebar">
-        <div class="actions">
-            <img src="lib/img/new.png" id="new_document" title="New SpritePad">
-            <img src="lib/img/download.png" id="download_document" class="deactivated" title="Download SpritePad data">
-            <img src="lib/img/settings.png" id="btn-settings" class="deactivated" title="Define different settings">
-            <div class="dropdown" id="settings">
-                <div class="anchor"><img src="lib/img/settings.png" title="Define different settings"></div>
-                <div class="content">
-                    <label><input checked type="checkbox" data-option="magnetic"> Magnetic elements and guides</label>
-                    <label><input checked type="checkbox" data-option="magnetspace"> Preserve 1px spaces</label>
-                    <label><input type="checkbox" data-option="gridsnap"> Snap elements to grid</label>
-                    <label><input type="checkbox" data-option="drawbounding"> Draw bounding masks</label>
-                </div>
-            </div>
-            <img src="lib/img/autoscale.png" id="btn-autoscale" class="deactivated" title="Shrink document to fit elements">
-        </div>
         <div class="styles"></div>
     </div>
 </div>

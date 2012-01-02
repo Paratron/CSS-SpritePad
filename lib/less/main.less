@@ -1,3 +1,4 @@
+//simpless:autoprefix
 html,body{
    width: 100%;
    height: 100%;
@@ -5,30 +6,107 @@ html,body{
    margin: 0;
    font-family: Arial, Helvetica, sans-serif;
    font-size: 12px;
+   overflow: hidden;
+}
+
+body{
+    display: box;
+    display: -webkit-box; //@TODO: Remove when prefixr is updated!
+    display: -moz-box;
+    box-align: vertical;
+    box-orient: stretch;
+}
+
+#logo{
+    small{
+        font-size: 12px;
+    }
+}
+
+.topbar .container{
+    margin: 0;
+    margin-left: 20px;
+}
+
+.topbar{
+    .disabled{
+        color: #fff !important;
+        opacity: 0.2;
+        cursor: default;
+
+        &:hover{
+            color: #fff !important;
+            cursor: default;
+            opacity: 0.2 !important;
+
+            img{
+                opacity: 0.8 !important;
+            }
+        }
+    }
+}
+
+.nav{
+    a{
+        img{
+            vertical-align: middle;
+            opacity: 0.8;
+        }
+
+        &:hover{
+            img{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+#main-bar{
+    position: relative;
+    height: 25px;
+    line-height: 25px;
+    padding: 3px;
+    background: #000;
+    background-image: linear-gradient(top, #707070, #000000);
+    .dropshadow(2px);
+
+    img{
+        line-height: 25px;
+        cursor: pointer;
+        margin-left: 5px;
+        margin-right: 5px;
+        vertical-align: middle;
+        position: relative;
+        top: -2px;
+    }
 }
 
 #app{
-    display: -webkit-box;
-    -webkit-box-align: stretch;
-    -webkit-box-orient: horizontal;
-
+    display: box;
+    display: -webkit-box; //@TODO: Remove when prefixr is updated!
     display: -moz-box;
-    -moz-box-align: stretch;
-    -moz-box-orient: horizontal;
+    box-align: stretch;
+    box-orient: horizontal;
 
-    width: 100%;
-    height: 100%;
+    box-flex: 1;
 
     #canvas, #sidebar{
         height: 100%;
     }
 
     #document{
-        -webkit-box-flex: 1;
-        -moz-box-flex: 1;
+        padding-top: 40px;
         background: #bfbfbf;
         text-align: center;
-        line-height: 100%;
+        overflow: auto;
+        display: box;
+        display: -webkit-box; //@TODO: Remove when prefixr is updated!
+        display: -moz-box;
+        box-orient: horizontal;
+        box-pack: center;
+        box-align: center;
+        box-flex: 1;
     }
 
     #excanvas{
@@ -37,9 +115,7 @@ html,body{
         height: 480px;
         padding-top: 15px;
         padding-left: 15px;
-
         display: inline-block;
-        vertical-align: middle;
 
         &:before{
             display: block;
@@ -70,8 +146,6 @@ html,body{
         overflow: hidden;
         width: 640px;
         height: 480px;
-        -moz-box-shadow:0px 0px 5px #000000;
-        -webkit-box-shadow:0px 0px 5px #000000;
         box-shadow:0px 0px 5px #000000;
 
         .element{
@@ -125,55 +199,26 @@ html,body{
     }
 
     #sidebar{
-        width: 400px;
+        padding-top: 40px;
+        width: 0px;
         background: #fff url(../img/paper.png);
-        -moz-box-shadow:-1px 0px 2px #333;
-        -webkit-box-shadow:-1px 0px 2px #333;
+
+
         box-shadow:-1px 0px 2px #333;
-
-        display: -webkit-box;
-        -webkit-box-align: stretch;
-        -webkit-box-orient: vertical;
-
+        display: box;
+        display: -webkit-box; //@TODO: Remove when prefixr is updated!
         display: -moz-box;
-        -moz-box-align: stretch;
-        -moz-box-orient: vertical;
-
+        box-align: stretch;
+        box-orient: vertical;
 
         .styles{
             overflow-y: scroll;
-            -webkit-box-flex: 1;
-            -moz-box-flex: 1;
-        }
-
-        .actions{
-            position: relative;
-            height: 25px;
-            line-height: 25px;
-            padding: 3px;
-            background: #000;
-            background-image: -moz-linear-gradient(top, #707070, #000000);
-            background-image: -webkit-gradient(linear, center top, center bottom, from(#707070), to(#000000));
-            background-image: -o-linear-gradient(top, #707070, #000000);
-            background-image: linear-gradient(top, #707070, #000000);
-
-            img{
-                line-height: 25px;
-                cursor: pointer;
-                margin-left: 5px;
-                margin-right: 5px;
-                vertical-align: middle;
-                position: relative;
-                top: -2px;
-            }
-
-             .deactivated{
-                opacity: 0.5;
-                cursor: default;
-             }
+            overflow-x: hidden;
+            box-flex: 1;
         }
 
         .node{
+            width: 370px;
             font-family: monospace;
             padding: 5px;
             border-bottom: #bfbfbf solid 1px;
@@ -206,60 +251,6 @@ html,body{
     }
 }
 
-#welcome{
-    display: inline-block;
-    width: 640px;
-    box-shadow:0px 0px 5px #000000;
-    line-height: 1.5em;
-    text-align: left;
-    vertical-align: middle;
-    background: #dcdcdc;
-    border: #333 solid 1px;
-    -webkit-border-radius: 5px;
-    color: #333;
-    padding-right: 2px;
-
-    h1{
-        margin: 0;
-        height: 50px;
-        line-height: 50px;
-        font-size: 40px;
-        padding: 10px;
-        color: #2f2f2f;
-        border-bottom: #aaa solid 1px;
-
-        small{
-            font-size: 0.5em;
-        }
-
-        img{
-            margin-left: 5px;
-        }
-    }
-
-    .body{
-        border-top: #eee solid 1px;
-        border-bottom: #aaa solid 1px;
-        display: table;
-        width: 100%;
-    }
-    .row{
-        display: table-row;
-        width: 100%;
-
-        div{
-            display: table-cell;
-            vertical-align: top;
-            padding: 10px;
-            width: 50%;
-        }
-    }
-
-    .info{
-        border-top: #eee solid 1px;
-        padding: 10px;
-    }
-}
 
 .btn, button{
     background-color: #efefef;
@@ -267,8 +258,8 @@ html,body{
     border-style: solid;
     border-width: 1px;
     border-radius: 2px 2px;
-    -webkit-border-radius: 2px 2px;
-    -moz-border-radius: 2px 2px;
+
+
     cursor: pointer;
     height: 23px;
     line-height: 23px;
@@ -303,38 +294,13 @@ html,body{
     }
 }
 
-.dropdown{
-    position: absolute;
-    top: 3px;
-    right: 313px;
-    display: none;
-    
-    .anchor{
-        background: #333;
-        width: 25px;
-        height: 23px;
-        float: right;
-        -moz-border-radius:10px 10px 0px 0px;
-        -webkit-border-radius:10px 10px 0px 0px;
-        border-radius:10px 10px 0px 0px;
-        z-index: 2;
-    }
-    .content{
-        margin-top: 20px;
-        padding: 3px;
-        background: #333;
-        -moz-border-radius:10px 0px 10px 10px;
-        -webkit-border-radius:10px 0px 10px 10px;
-        border-radius:10px 0px 10px 10px;
-        .dropshadow(1px, 0.3);
-
-        label{
-            display: block;
-            color: #fff;
-            padding: 3px;
-            padding-right: 10px;
-            width: 200px;
-        }
+.dropdown-menu{
+    label{
+        width: 200px;
+        display: block;
+        color: #fff;
+        padding: 3px 10px;
+        text-align: left;
     }
 }
 
@@ -370,15 +336,51 @@ html,body{
     }
 }
 
+#toolbox{
+    display: none;
+    width: 400px;
+    top: auto;
+    left: auto;
+    bottom: 20px;
+    right: 420px;
+
+    .modal-header{
+        //cursor: move;
+    }
+
+    &.minimized{
+        .modal-header{
+            border-bottom: none;
+        }
+
+        h3{
+            img{
+                cursor: pointer;
+            }
+        }
+    }
+
+    .btn{
+        line-height: 20px;
+        img{
+            vertical-align: middle;
+        }
+    }
+
+    .toggled{
+        background-position: 0 -15px;
+        text-decoration: none;
+        border-color: #23bb1c;
+    }
+}
+
 .dropshadow(@depth: 1px, @strength: 0.08){
     box-shadow:  0px @depth 2px rgba(0,0,0,@strength), inset 0px 1px 2px rgba(255,255,255,0.19);
-    -webkit-box-shadow:  0px @depth 2px rgba(0,0,0,@strength), inset 0px 1px 2px rgba(255,255,255,0.19);
-    -moz-box-shadow:  0px @depth 2px rgba(0,0,0,@strength), inset 0px 1px 2px rgba(255,255,255,0.19);
 }
 .no-shadow{
     box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
+
+
 }
 .inline-block{
     display: inline-block;
@@ -387,7 +389,4 @@ html,body{
 }
 .border-radius(@border-radius: 2px){
     border-radius: @border-radius;
-    -webkit-border-radius: @border-radius;
-    -moz-border-radius: @border-radius;
-    -o-border-radius: @border-radius;
 }
