@@ -170,6 +170,7 @@ body{
             position: absolute;
             background: #f00;
             cursor: e-resize;
+            z-index: 2;
         }
 
         .guide-v{
@@ -373,6 +374,8 @@ body{
         border-color: #23bb1c;
     }
 }
+
+@import "popover.less";
 
 .dropshadow(@depth: 1px, @strength: 0.08){
     box-shadow:  0px @depth 2px rgba(0,0,0,@strength), inset 0px 1px 2px rgba(255,255,255,0.19);

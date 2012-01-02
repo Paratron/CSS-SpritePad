@@ -6,7 +6,7 @@
     <script>
         window.Modernizr=function(a,b,c){function y(a,b){return!!~(""+a).indexOf(b)}function x(a,b){return typeof a===b}function w(a,b){return v(m.join(a+";")+(b||""))}function v(a){j.cssText=a}var d="2.0.6",e={},f=b.documentElement,g=b.head||b.getElementsByTagName("head")[0],h="modernizr",i=b.createElement(h),j=i.style,k,l=Object.prototype.toString,m=" -webkit- -moz- -o- -ms- -khtml- ".split(" "),n={},o={},p={},q=[],r=function(){function d(d,e){e=e||b.createElement(a[d]||"div"),d="on"+d;var f=d in e;f||(e.setAttribute||(e=b.createElement("div")),e.setAttribute&&e.removeAttribute&&(e.setAttribute(d,""),f=x(e[d],"function"),x(e[d],c)||(e[d]=c),e.removeAttribute(d))),e=null;return f}var a={select:"input",change:"input",submit:"form",reset:"form",error:"img",load:"img",abort:"img"};return d}(),s,t={}.hasOwnProperty,u;!x(t,c)&&!x(t.call,c)?u=function(a,b){return t.call(a,b)}:u=function(a,b){return b in a&&x(a.constructor.prototype[b],c)},n.flexbox=function(){function c(a,b,c,d){a.style.cssText=m.join(b+":"+c+";")+(d||"")}function a(a,b,c,d){b+=":",a.style.cssText=(b+m.join(c+";"+b)).slice(0,-b.length)+(d||"")}var d=b.createElement("div"),e=b.createElement("div");a(d,"display","box","width:42px;padding:0;"),c(e,"box-flex","1","width:10px;"),d.appendChild(e),f.appendChild(d);var g=e.offsetWidth===42;d.removeChild(e),f.removeChild(d);return g},n.canvas=function(){var a=b.createElement("canvas");return!!a.getContext&&!!a.getContext("2d")},n.draganddrop=function(){return r("dragstart")&&r("drop")};for(var z in n)u(n,z)&&(s=z.toLowerCase(),e[s]=n[z](),q.push((e[s]?"":"no-")+s));v(""),i=k=null,e._version=d,e._prefixes=m,e.hasEvent=r;return e}(this,this.document);
         var m = Modernizr;
-        var support = m.canvas && m.draganddrop && m.flexbox && (typeof FileReader !== 'undefined');
+        var support = m.canvas && m.draganddrop && m.flexbox && (typeof FileReader !== 'undefined') && (typeof localStorage !== 'undefined');
         if(!support) location.href = 'upgrade.html';
     </script>
     <link rel="shortcut icon" href="favicon.ico" />
@@ -17,13 +17,13 @@
     <meta property="og:image" content="http://wearekiss.com/lab/spritepad/lib/img/fb-icon.png"/>
     <meta property="og:site_name" content="KISS - Simply Achieve More"/>
     <meta property="fb:admins" content="100000549523060,617757437"/>
-    <meta property="og:description" content="SpritePad is a HTML5 Web App that helps you building CSS Spritemaps easy and fast. Give it a try!"/>
+    <meta property="og:description" content="SpritePad is a HTML5 Web App that helps you building CSS Spritemaps easy and fast. Give it a try - you will never touch Photoshop again for creating CSS Spritemaps."/>
 </head>
 <body>
 <div class="topbar" data-scrollspy="scrollspy" >
       <div class="topbar-inner">
         <div class="container">
-            <h3><a href="http://wearekiss.com/lab/spritepad/" id="logo" onclick="return false;">SpritePad</a></h3>
+            <h3><a href="http://wearekiss.com/lab/spritepad/" id="logo">SpritePad</a></h3>
           <ul class="nav">
             <li><a href="#" id="new_document" ><img src="lib/img/new.png"title="New SpritePad"> New Spritemap</a></li>
             <li><a href="#" id="download_document" class="disabled"><img src="lib/img/download.png" title="Download Spritemap Data"> Download Spritemap Data</a></li>
@@ -68,7 +68,7 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="lib/js/LAB.min.js"></script>
-<script src="lib/js/app.js"></script>
+<script src="lib/js/app.js?<?=filemtime('lib/js/app.js')?>"></script>
 <script>
     app.init();
 </script>
